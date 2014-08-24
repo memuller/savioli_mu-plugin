@@ -28,7 +28,7 @@
 
 
 	# Requires vendored libs and base structure.
-	require_once 'lib/vendors/haml/HamlParser.class.php' ;
+	if(!function_exists('display_haml')) require_once 'lib/vendors/haml/HamlParser.class.php' ;
 	#require_once 'lib/vendors/recaptcha-php/recaptchalib.php';
 	if(!class_exists('BasePlugin')) require_once 'lib/BasePlugin.php' ;
 	if(!class_exists('Presenter')) require_once 'lib/Presenter.php' ;
@@ -43,7 +43,7 @@
 	# Requires WP table/list framework.
 	#if(!class_exists('WP_List_Table')) require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 
-	if(!functions_exists('file_get_dom')) require 'vendors/ganon.php' ;
+	if(!function_exists('file_get_dom')) require 'vendors/ganon.php' ;
 
 	require 'base/Base.php' ;
 	Savioli\Plugin::build();
