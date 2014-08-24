@@ -1,0 +1,7 @@
+.widget_magento_products ul {
+	list-style: none;
+	text-align: center;
+}
+.widget_magento_products ul a img {
+	width: 120%;
+}

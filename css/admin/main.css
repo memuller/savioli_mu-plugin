@@ -1,0 +1,7 @@
+#toplevel_page_w3tc_dashboard .wp-menu-image:before{
+    content: '\f226' !important;  
+}
+
+#slugdiv { display: none; }
+#normal-sortables { min-height: 0px !important; }
+#region-adder { display: none; }
