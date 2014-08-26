@@ -5,3 +5,10 @@
 .widget_magento_products ul a img {
 	width: 120%;
 }
+
+.widget_banner {
+	border: none !important;
+	padding: 0px !important;
+}
+
+.widget_banner a { width: 100%; }

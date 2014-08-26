@@ -8,8 +8,8 @@
 		static $custom_posts = array('Banner');
 		static $custom_taxonomies = array();
 		static $custom_post_formats = array();
-		static $custom_classes = array('MagentoProduct', 'MagentoWidget');
-		static $custom_users = array();
+		static $custom_classes = array('MagentoProduct', 'MagentoWidget','BannerWidget', 'ForeignPost');
+		static $custom_users = array('Editor');
 		static $presenters = array();
 		static $has_translations = false ;
 
@@ -29,10 +29,7 @@
 		static function build(){
 			parent::build();
 			add_filter( 'got_rewrite', '__return_true', 999 );
-			
-			add_action('admin_init', function(){
-				register_setting('clinica-savioli_options', 'clinica-savioli_options');
-			});
+		
 		}
 
 	}
