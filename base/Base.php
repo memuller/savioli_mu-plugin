@@ -14,7 +14,7 @@
 		static $has_translations = false ;
 
 		static $absent_roles = array();
-		static $restricted_menus = array('Posts', 'Comments');
+		static $restricted_menus = array();
 		static $restrict_for_everyone = true;
 
 		static $migrations = array(
