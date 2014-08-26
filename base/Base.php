@@ -10,7 +10,7 @@
 		static $custom_post_formats = array();
 		static $custom_classes = array('MagentoProduct', 'MagentoWidget','BannerWidget', 'ForeignPost');
 		static $custom_users = array('Editor');
-		static $presenters = array();
+		static $presenters = array('Gallery');
 		static $has_translations = false ;
 
 		static $absent_roles = array();
