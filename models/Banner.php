@@ -59,7 +59,7 @@
 
 		static function build(){
 			parent::build();
-			add_action('clinicasavioli-banner-save', function($id, $data){
+			add_action('savioli-banner-save', function($id, $data){
 				$post = get_post($id);
 				if($post->post_title == $data['url']) return ;
 				wp_update_post(array('ID' => $id, 'post_title' => $data['url']));
