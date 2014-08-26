@@ -39,6 +39,7 @@
 				|| is_main_site()
 			){
 				static::setup_config_page();
+				static::hide_menus();
 			}
 
 			add_filter('galleria_theme', function($theme){
@@ -64,6 +65,19 @@
 							),get_option('clinica-savioli_options', array()))
 						));
 				});	
+			});
+		}
+
+		static function hide_menus(){
+			add_action('admin_menu', function(){
+				global $menu;
+				$restricted = array(__('Posts'), __('Comments'));
+				end ($menu);
+				while (prev($menu)){
+					$value = explode(' ',$menu[key($menu)][0]);
+					if(in_array($value[0] != NULL?$value[0]:"" , $restricted))
+						unset($menu[key($menu)]);
+				}
 			});
 		}
 	}
