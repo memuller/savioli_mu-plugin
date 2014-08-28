@@ -25,7 +25,7 @@
 		static $icon = '\f116' ;
 		static $fields = array(
 			'url' => array('type' => 'url', 'required' => true, 'label' => 'Endereço', 'description' => 'endereço utilizado quando o banner for clicado.'),
-			'image' => array('type' => 'media', 'required' => true, 'label' => 'Imagem'),
+			'image' => array('type' => 'media', 'preview' => true, 'required' => true, 'label' => 'Imagem'),
 			'position' => array('type' => 'set', 'label' => 'Posição', 'values' => array(
 				'featured' => 'Destaque', 'store' => 'Mais Produtos', 'sidebar' => 'Sidebar'
 			)),

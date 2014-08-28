@@ -7,7 +7,7 @@
 		static $name = 'editor' ;
 
 		static $fields = array(
-			'avatar' => array('type' => 'media', 'label' => 'Avatar')
+			'avatar' => array('type' => 'media', 'preview' => true, 'label' => 'Avatar')
 		);
 
 		static $allow_admin = true;
