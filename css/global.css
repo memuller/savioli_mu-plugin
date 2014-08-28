@@ -1,0 +1,26 @@
+#global {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: black;
+}
+#global ul {
+  padding: 3px 0px 3px 0px;
+  margin: 0px;
+  list-style: none;
+}
+#global ul li {
+  margin-left: 3%;
+  display: inline;
+}
+#global ul li a {
+  color: white;
+  font-weight: bold;
+}
+#global ul li a:hover {
+  color: #e6b842;
+}
+body {
+  margin-top: 30px !important;
+}
