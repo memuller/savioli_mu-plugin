@@ -12,11 +12,6 @@
 
 		static $allow_admin = true;
 
-		static function auth(){
-			wp_die( "You can only edit a Corporation if you're it's lead member. Please contact us if you believe you should be able to do so.", "Corporate owners only" );
-		}
-
-
 		static function build(){
 			parent::build();
 			add_filter('get_avatar', function($avatar, $id_or_email, $size, $default, $alt){

@@ -1,14 +1,11 @@
 <div id='global'>
 	<ul class="">
-		<li>
-			<a href="gueres">
-				Clínica
-			</a>
-		</li>
-		<li>
-			<a href="gueres">
-				Rola
-			</a>
-		</li>
+		<?php foreach ($menus as $site => $url): ?>
+			<li>
+				<a href="<?php echo $url ?>">
+					<?php echo $site ?>
+				</a>
+			</li>
+		<?php endforeach ?>
 	</ul>
 </div>
