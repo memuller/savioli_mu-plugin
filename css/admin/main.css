@@ -3,5 +3,6 @@
 }
 
 #slugdiv { display: none; }
+#postcustom {display: none;}
 #normal-sortables { min-height: 0px !important; }
 #region-adder { display: none; }
