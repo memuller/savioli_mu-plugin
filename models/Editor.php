@@ -15,6 +15,7 @@
 		static function build(){
 			parent::build();
 			add_filter('get_avatar', function($avatar, $id_or_email, $size, $default, $alt){
+				if(!$id_or_email || $id_or_email == 1) return $avatar ;
 				$user = new \Savioli\Editor($id_or_email);
 				if($user->avatar){
 					$avatar = sprintf('<img class="avatar photo avatar-%s" 
