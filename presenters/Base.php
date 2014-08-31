@@ -42,9 +42,6 @@
 				static::hide_menus();
 			}
 
-			add_filter('galleria_theme', function($theme){
-				return SHIBA_GALLERY_URL.'js/galleria/themes/folio/galleria.folio.min.js';
-			});
 		}
 
 		static function setup_config_page(){
@@ -71,7 +68,7 @@
 		static function hide_menus(){
 			add_action('admin_menu', function(){
 				global $menu;
-				$restricted = array(__('Posts'), __('Comments'));
+				$restricted = array(__('Posts'), __('Comments'), 'Clippings');
 				end ($menu);
 				while (prev($menu)){
 					$value = explode(' ',$menu[key($menu)][0]);
