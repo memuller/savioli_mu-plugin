@@ -5,7 +5,8 @@
 	class Gallery extends Presenter {
 
 		static $actions = array(
-			'load_gallery' => array('post_type' => 'page')
+			'load_gallery_single' => array('post_type' => 'page'),
+			'load_gallery' => array('archive' => 'clipping')
 		);
 
 		static function build(){
@@ -14,13 +15,18 @@
 		}
 
 		static function load_gallery(){
-			global $post;
-			if(strpos($post->post_content, '[gallery') === false) return ;
 			wp_enqueue_script('galleria', static::url('vendors/galleria/galleria-1.4.2.min.js'), array('jquery'), '1.4.2', true);
 			wp_enqueue_script('galleria-default', static::url('js/galleria.js'), array('galleria'), false, true);
 			wp_localize_script('galleria-default', 'Gallery', array(
 				'theme_url' => static::url('vendors/galleria/themes/savioli/galleria.savioli.js')
 			));
+
+		}
+
+		static function load_gallery_single(){
+			global $post;
+			if(strpos($post->post_content, '[gallery') === false) return ;
+			static::load_gallery();
 			remove_shortcode('gallery');
 			add_shortcode('gallery', get_class($this).'::shortcode');
 		}

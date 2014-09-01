@@ -37,7 +37,7 @@ Galleria.addTheme({
             touch = Galleria.TOUCH;
 
         // show loader & counter with opacity
-        this.$('loader,counter').show().css('opacity', 0.4);
+        //this.$('loader,counter').show().css('opacity', 0.4);
 
         // some stuff for non-touch browsers
         if (! touch ) {
@@ -46,15 +46,9 @@ Galleria.addTheme({
             this.addIdleState( this.get('counter'), { opacity:0 });
         }
 
-        // toggle info
-        if ( options._toggleInfo === true ) {
-            info.bind( 'click:fast', function() {
-                info.toggle();
-            });
-        } else {
             info.show();
             this.$('info-link, info-close').hide();
-        }
+
 
         // bind some stuff
         this.bind('thumbnail', function(e) {
@@ -78,7 +72,7 @@ Galleria.addTheme({
 
         this.bind('loadstart', function(e) {
             if (!e.cached) {
-                this.$('loader').show().fadeTo(200, 0.4);
+                //this.$('loader').show().fadeTo(200, 0.4);
             }
             window.setTimeout(function() {
                 activate(e);
@@ -87,7 +81,7 @@ Galleria.addTheme({
         });
 
         this.bind('loadfinish', function(e) {
-            this.$('loader').fadeOut(200);
+            //this.$('loader').fadeOut(200);
         });
     }
 });
