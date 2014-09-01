@@ -5,7 +5,7 @@
 	class Plugin extends BasePlugin {
 
 		static $db_version = '0.1' ;
-		static $custom_posts = array('Banner');
+		static $custom_posts = array('Banner', 'Clipping');
 		static $custom_taxonomies = array();
 		static $custom_post_formats = array();
 		static $custom_classes = array('MagentoProduct', 'MagentoWidget','BannerWidget', 'ForeignPost');
