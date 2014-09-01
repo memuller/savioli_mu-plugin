@@ -34,13 +34,15 @@
 				});
 			});
 
+
+			\Savioli\Presenters\Menu::setup_config_page();
+
 			if(
 				(defined('SAVIOLI_MAIN_SITE') && get_current_blog_id() == SAVIOLI_MAIN_SITE )
 				|| is_main_site()
 			){
 				static::setup_config_page();
 				static::hide_menus();
-			}
 
 		}
 

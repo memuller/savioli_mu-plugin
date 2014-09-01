@@ -4,14 +4,15 @@
   left: 0px;
   width: 100%;
   background-color: black;
+  padding: 4px 0px 4px 0px;
 }
 #global ul {
-  padding: 3px 0px 3px 0px;
   margin: 0px;
   list-style: none;
+  display: inline;
 }
 #global ul li {
-  margin-left: 3%;
+  margin-left: 1%;
   display: inline;
 }
 #global ul li a {
@@ -21,6 +22,18 @@
 #global ul li a:hover {
   color: #e6b842;
 }
+#global .social {
+  float:right;
+  margin-right: 1%;
+}
+#global .social .genericon {
+  font-size: 18px;
+  color: white;
+}
+#global .social a:hover{
+  color: #e6b842;
+}
+
 body {
   margin-top: 30px !important;
 }
