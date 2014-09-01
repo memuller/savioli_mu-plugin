@@ -43,6 +43,7 @@
 			){
 				static::setup_config_page();
 				static::hide_menus();
+			}
 
 		}
 
