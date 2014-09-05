@@ -48,6 +48,7 @@
 
 		static function build(){
 			$class = get_called_class();
+			$base = '\Savioli\Plugin';
 			parent::build();
 			add_action('admin_menu', function(){
 				if(!current_user_can('manage_options')){
@@ -83,6 +84,12 @@
 					"#TB_inline?width=800&height=600&inlineId=help-$object->ID", $object->title, __('View'), 
 					'help-'.$object->ID, apply_filters('the_content',$object->content));
 				return $actions;
+			});
+
+			add_filter('pre_get_posts', function($query) use($base) {
+				if(is_admin() && $query->query['post_type'] == 'help'){
+					switch_to_blog($base::main_site());
+				}
 			});
 		}
 		
