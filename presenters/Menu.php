@@ -13,7 +13,6 @@
 			parent::build();
 			add_action('wp_enqueue_scripts', function() use($presenter){
 				if(!is_user_logged_in()){
-					wp_enqueue_style('genericons', $presenter::url('vendors/genericons/genericons/genericons.css'));
 					wp_enqueue_style('global-menu', $presenter::url('css/global.css'));
 					add_action('wp_footer', function() use($presenter){
 						$presenter::render('global', array('menus' => array(

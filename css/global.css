@@ -4,12 +4,14 @@
   left: 0px;
   width: 100%;
   background-color: black;
-  padding: 4px 0px 4px 0px;
+  padding: 0px 0px 0px 0px;
 }
 #global ul {
   margin: 0px;
   list-style: none;
-  display: inline;
+  display: inline-block;
+  margin-top: 3px;
+  width: 70%;
 }
 #global ul li {
   margin-left: 1%;
@@ -26,13 +28,11 @@
   float:right;
   margin-right: 1%;
 }
-#global .social .genericon {
-  font-size: 18px;
-  color: white;
+#global .social img {
+  width: 20px;
+  border: none;
 }
-#global .social a:hover{
-  color: #e6b842;
-}
+
 
 body {
   margin-top: 30px !important;

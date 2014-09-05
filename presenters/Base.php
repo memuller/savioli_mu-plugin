@@ -13,7 +13,8 @@
 		);
 
 		static function build(){
-			$presenter = get_called_class() ;
+			$presenter = get_called_class();
+			$base = '\Savioli\Plugin';
 			parent::build();
 
 			# removes image from the W3TC menu background (so it can use the Dashicons font).
@@ -37,10 +38,7 @@
 
 			\Savioli\Presenters\Menu::setup_config_page();
 
-			if(
-				(defined('SAVIOLI_MAIN_SITE') && get_current_blog_id() == SAVIOLI_MAIN_SITE )
-				|| is_main_site()
-			){
+			if($base::is_main_site()){
 				static::setup_config_page();
 				static::hide_menus();
 			}
