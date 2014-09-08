@@ -70,7 +70,7 @@
 					<?php 
 					if(!current_user_can('manage_options')){?>
 						<style> 
-						.add-new-h2 { display: none; }
+							.add-new-h2 { display: none; }
 						</style>
 					<?php }
 				}
