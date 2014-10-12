@@ -39,13 +39,38 @@
 			\Savioli\Presenters\Menu::setup_config_page();
 
 			if($base::is_main_site()){
-				static::setup_config_page();
+				static::setup_config();
 				static::hide_menus();
+			} else {
+				static::setup_video_config();
 			}
-
 		}
 
-		static function setup_config_page(){
+		static function video_config(){
+			add_action('admin_menu', function() use($presenter){
+				add_submenu_page('edit.php?post_type=video', 'Configurações do Youtube', 'Configurações', 'manage_options', 'savioli_video_options', function() use($presenter){
+						$options = get_option('tern_wp_youtube');
+						if($_SERVER['REQUEST_METHOD'] == 'POST'){
+							$options['channels'][1]['channel'] = $_POST['savioli_video_options']['channel'];
+							update_option('tern_wp_youtube', $options);
+						}
+						if($_REQUEST['import']){
+							WP_ayvpp_add_posts(1,'*');
+						}
+
+						$presenter::render('admin/video', array(
+							'page' => '?page=savioli_video_options',
+							'options' => array('channel' => $options['channels'][1]['channel'])
+						));
+				});	
+			});
+			add_action('admin_init', function(){
+				register_setting('savioli_video_options', 'savioli_video_options') ;
+			
+			});
+		}
+
+		static function setup_config(){
 			$presenter = get_called_class();
 			add_action('admin_init', function(){
 				register_setting('clinica-savioli_options', 'clinica-savioli_options');
