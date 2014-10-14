@@ -243,7 +243,8 @@ function WP_ayvpp_add_import_posts($x=1,$n=20,$r=false) {
 						'tags_input'					=>	$t,
 						'post_date'						=>	gmdate('Y-m-d H:i:s',strtotime($w['published'])),
 						'post_author'					=>	$v['author'],
-						'post_type' 					=> 'video'
+						'post_type' 					=> 'video',
+						'post_status'					=> 'publish'
 					);
 
 					$a['id'] = WP_ayvpp_insert_post(array_merge($tern_wp_youtube_post_defaults,$a),$i);
