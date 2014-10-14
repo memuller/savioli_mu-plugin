@@ -32,27 +32,11 @@
     );
 
     static $editable_by = array(
-      'Vídeo' => array('fields' => array('url', 'broadcast_date', 'travel', 'type'), 'placing' => 'normal')
+      'Vídeo' => array('fields' => array('url'), 'placing' => 'normal')
     );
 
     static $collumns = array(
-      'travel' => 'Viagem',
-      'type_collumn' => 'Tipo'
     );
-
-    public function type_collumn(){
-      switch ($this->type) {
-        case 'selected':
-          echo 'Melhores Momentos';
-          break;
-        case 'complete':
-          echo 'Programa Completo';
-          break;
-        default:
-          echo '--';
-          break;
-      }
-    }
 
     static function build(){
       $class = get_called_class();
