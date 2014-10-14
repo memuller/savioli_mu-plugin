@@ -44,7 +44,7 @@
 	#if(!class_exists('WP_List_Table')) require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 
 	if(!function_exists('file_get_dom')) require 'vendors/ganon.php' ;
-
+	require 'vendors/automatic-youtube-video-posts/tern_wp_youtube.php';
 	require 'base/Base.php' ;
 	Savioli\Plugin::build();
 

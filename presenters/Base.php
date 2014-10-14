@@ -42,11 +42,12 @@
 				static::setup_config();
 				static::hide_menus();
 			} else {
-				static::setup_video_config();
+				static::video_config();
 			}
 		}
 
 		static function video_config(){
+			$presenter = get_called_class();
 			add_action('admin_menu', function() use($presenter){
 				add_submenu_page('edit.php?post_type=video', 'Configurações do Youtube', 'Configurações', 'manage_options', 'savioli_video_options', function() use($presenter){
 						$options = get_option('tern_wp_youtube');
@@ -94,7 +95,7 @@
 		static function hide_menus(){
 			add_action('admin_menu', function(){
 				global $menu;
-				$restricted = array(__('Posts'), __('Comments'), 'Clippings');
+				$restricted = array(__('Posts'), __('Comments'), 'Clippings', "Vídeos");
 				end ($menu);
 				while (prev($menu)){
 					$value = explode(' ',$menu[key($menu)][0]);
