@@ -43,10 +43,6 @@
       parent::build();
     }
 
-    public function embed($args){
-      return wp_oembed_get($url, $args);
-    }
-
   }
 
  ?>
