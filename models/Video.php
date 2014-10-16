@@ -42,6 +42,11 @@
       $class = get_called_class();
       parent::build();
     }
+
+    public function embed($args){
+      return wp_oembed_get($url, $args);
+    }
+
   }
 
  ?>
