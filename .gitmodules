@@ -1,3 +1,6 @@
 [submodule "lib"]
 	path = lib
 	url = https://github.com/memuller/wp_atlas.git
+[submodule "vendors/instagram-grid"]
+	path = vendors/instagram-grid
+	url = https://github.com/cmaseattle/instagram-grid.git
