@@ -43,6 +43,12 @@
       parent::build();
     }
 
+    static function channel_url(){
+      $options =  get_option('tern_wp_youtube');
+      $url = $options['channels'][1]['channel'];
+      return "https://www.youtube.com/user/$url/videos";
+    }
+
   }
 
  ?>
