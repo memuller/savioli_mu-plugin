@@ -55,8 +55,18 @@
 							$options['channels'][1]['channel'] = $_POST['savioli_video_options']['channel'];
 							update_option('tern_wp_youtube', $options);
 						}
+						
 						if($_REQUEST['import']){
 							WP_ayvpp_add_posts(1,'*');
+						}
+
+						if($_REQUEST['reset']){
+							$options = get_option('tern_wp_youtube');
+							$channel = $options['channels'][1]['channel']; 
+							\Savioli\Plugin::migrate_ayvp_settings();
+							$options = get_option('tern_wp_youtube');
+							$options['channels'][1]['channel'] = $channel;
+							update_option('tern_wp_youtube', $options);
 						}
 
 						$presenter::render('admin/video', array(
