@@ -12,7 +12,7 @@
 						</th>
 						<td>
 							<input type='checkbox' name='clinica-savioli_social_options[enabled]' id='clinica-savioli_social_options_enabled' value='1' <?php checked(1,$options['enabled']) ?> />
-							<p class='description'> Os ícones de redes sociais serão exibidos somente se estiverem habilitados.</p>
+							<span class='description'> Os ícones de redes sociais serão exibidos somente se estiverem habilitados.</span>
 						</td>
 					</tr>
 					<tr valign='top'>
