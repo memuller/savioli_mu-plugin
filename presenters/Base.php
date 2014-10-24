@@ -20,10 +20,11 @@
 
 
 		static function localize_instagram(){
+			$options = get_option('savioli_photo_options');
 			return array(
-				'client_id' => 'dasdasd',
-				'auth_token' => 'adasdasd',
-				'user_id' => 11430887,
+				'client_id' => $options['client_id'],
+				'auth_token' => $options['auth_token'],
+				'user_id' => $options['user_id'],
 			);
 		}
 
@@ -58,6 +59,7 @@
 				static::hide_menus();
 			} else {
 				static::video_config();
+				static::photo_config();
 			}
 		}
 
@@ -96,6 +98,27 @@
 			});
 			add_action('admin_init', function(){
 				register_setting('savioli_video_options', 'savioli_video_options') ;
+			
+			});
+		}
+
+		static function photo_config(){
+			$presenter = get_called_class();
+			add_action('admin_menu', function() use($presenter){
+				add_submenu_page('options-general.php', 'Configurações do Instagram', 'Instagram', 'manage_options', 'savioli_photo_options', function() use($presenter){
+						$options = get_option('savioli_photo_options');
+						if($_SERVER['REQUEST_METHOD'] == 'POST'){
+							update_option('savioli_photo_options', $options);
+						}
+
+						$presenter::render('admin/photo', array(
+							'page' => '?page=savioli_photo_options',
+							'options' => $options
+						));
+				});	
+			});
+			add_action('admin_init', function(){
+				register_setting('savioli_photo_options', 'savioli_photo_options') ;
 			
 			});
 		}
