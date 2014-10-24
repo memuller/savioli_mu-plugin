@@ -4,3 +4,6 @@
 [submodule "vendors/instagram-grid"]
 	path = vendors/instagram-grid
 	url = https://github.com/cmaseattle/instagram-grid.git
+[submodule "vendors/instafeed"]
+	path = vendors/instafeed
+	url = https://github.com/stevenschobert/instafeed.js.git
