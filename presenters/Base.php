@@ -8,9 +8,24 @@
 			'widgets' => array('from' => 'plugin', 'source' => '/css/widgets.css')
 		);
 
-		static $includes = array(
-			array('is' => 'any', 'styles' => array('widgets'))
+		static $scripts = array(
+			'instafeed' => array('from' => 'plugin', 'source' => '/vendors/instafeed/instafeed.min.js',
+				'localize' => array('Instagram', 'localize_instagram'), 'dependencies' => array('jquery'))
 		);
+
+		static $includes = array(
+			array('is' => 'any', 'styles' => array('widgets')),
+			array('if' => 'isblog', 'is' => 'home', 'scripts' => array('instafeed'))
+		);
+
+
+		static function localize_instagram(){
+			return array(
+				'client_id' => 'dasdasd',
+				'auth_token' => 'adasdasd',
+				'user_id' => 11430887,
+			);
+		}
 
 		static function build(){
 			$presenter = get_called_class();
@@ -46,6 +61,10 @@
 			}
 		}
 
+		static function isblog(){
+			$base = '\Savioli\Plugin';
+			return !$base::is_main_site();
+		}
 		static function video_config(){
 			$presenter = get_called_class();
 			add_action('admin_menu', function() use($presenter){
