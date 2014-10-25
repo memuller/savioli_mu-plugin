@@ -317,6 +317,7 @@ class ternXML {
 		return false;
 	}
 	function fix_item(&$item) {
+		return true;
 		if($this->is_list and ((is_array($item[$this->name]) and !$item[$this->name]['attributes']['list']) or !is_array($item[$this->name]))) {
 			$a = array();
 			/*if(is_array($item[$this->name]) and $item[$this->name]['attributes']) {
