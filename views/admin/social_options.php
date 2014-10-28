@@ -3,7 +3,6 @@
 	<h2>Redes Sociais</h2>
 	<form method='post' action='options.php'>
 		<?php settings_fields('clinica-savioli_social_options') ?>
-			<p>Links para redes sociais podem ser exibidos na barra superior do site.</p>
 			<table class='form-table'>
 				<tbody>
 					<tr valign='top'>
@@ -12,7 +11,7 @@
 						</th>
 						<td>
 							<input type='checkbox' name='clinica-savioli_social_options[enabled]' id='clinica-savioli_social_options_enabled' value='1' <?php checked(1,$options['enabled']) ?> />
-							<span class='description'> Os ícones de redes sociais serão exibidos somente se estiverem habilitados.</span>
+							<span> Exibir links para redes sociais na barra superior do site</span>
 						</td>
 					</tr>
 					<tr valign='top'>

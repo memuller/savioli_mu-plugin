@@ -241,7 +241,7 @@ class ternXML {
 		xml_parse($this->parser,$x,true);
 		xml_parser_free($this->parser);
 		
-		$this->clean_parsed($this->parsed);
+		#$this->clean_parsed($this->parsed);
 		return $this->parsed;
 	}
 	

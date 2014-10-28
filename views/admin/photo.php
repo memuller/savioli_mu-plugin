@@ -2,7 +2,6 @@
 	<h2>Configurações do Instagram</h2>
 	<form method='POST' action='options.php'>
 	<?php settings_fields('savioli_photo_options') ?>
-		<p>Controla a exibição de fotos do Instagram na página inicial.</p>
 		<table class='form-table'>
 			<tbody>
 				<tr valign='top'>
@@ -12,7 +11,7 @@
 					<td>
 						<input type='checkbox' name='savioli_photo_options[enabled]' id='savioli_photo_options-enabled' 
 							value='1' <?php checked(1,$options['enabled']) ?> />
-						<span class='description'>Exibe grid de fotos do Instagram.</span>
+						<span>Exibir grid de fotos na página inicial</span>
 					</td>
 				</tr>
 				<tr valign='top'>
@@ -30,7 +29,11 @@
 				</tr>
 			</tbody>
 		</table>
-		<h3 class="title">Cliente de API</h3>
+		<h3 class="title">Informações da API</h3>
+		<p>
+			Estas informações são necessárias para uso do Instagram. </br>
+			Seu desenvolvedor pode ajudar a preenchê-las.	
+		</p>
 		<table class="form-table">
 			<tbody>
 				<tr valign='top'>

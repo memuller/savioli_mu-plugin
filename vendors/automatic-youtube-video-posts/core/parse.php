@@ -286,18 +286,18 @@ function WP_ayvpp_parse_set_error($e) {
 	$o = $getWP->getOption('tern_wp_youtube',$o,true);
 }
 function WP_ayvpp_file_contents() {
-	global $getFILE;
-	return $getFILE->contents(WP_CONTENT_DIR.'/cache/ayvpp.txt');
+	global $getFILE, $blog_id;
+	return $getFILE->contents(WP_CONTENT_DIR.'/cache/ayvpp'.$blog_id.'.txt');
 }
 function WP_ayvpp_reset_file() {
-	global $getFILE;
-	$getFILE->createFile('ayvpp.txt','',WP_CONTENT_DIR.'/cache');
+	global $getFILE, $blog_id;
+	$getFILE->createFile('ayvpp'.$blog_id.'.txt','',WP_CONTENT_DIR.'/cache');
 }
 function WP_ayvpp_update_file($c) {
-	global $getFILE;
+	global $getFILE, $blog_id;
 	$d = WP_ayvpp_file_contents();
 	$d .= empty($d) ? $c : '<->'.$c;
-	$getFILE->createFile('ayvpp.txt',$d,WP_CONTENT_DIR.'/cache');
+	$getFILE->createFile('ayvpp'.$blog_id.'.txt',$d,WP_CONTENT_DIR.'/cache');
 }
 function WP_ayvpp_check_memory() {
 
