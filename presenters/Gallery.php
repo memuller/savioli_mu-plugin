@@ -31,9 +31,9 @@
 			add_shortcode('gallery', get_class($this).'::shortcode');
 		}
 
-		static function shortcode($attributes){
-			global $post;
-		 
+		static function shortcode($output, $attributes){
+			global $post, $wp_locale;
+		 	$output = "";
 			if ( ! empty( $attributes['ids'] ) ) {
 				if ( empty( $attributes['orderby'] ) )
 					$attributes['orderby'] = 'post__in';
@@ -68,19 +68,20 @@
 			}
 		 
 			$images = get_posts($args);
-			?>
-			<div class='galleria'>
-				<?php foreach ( $images as $image ){     
-					$caption = $image->post_excerpt;
-					$description = $image->post_content;
-					if($description == '') $description = $image->post_title;
-					$image_alt = get_post_meta($image->ID,'_wp_attachment_image_alt', true);?>
-			 		<a href="<?php echo first(wp_get_attachment_image_src($image->ID, 'original')) ?>">
-			 			<?php echo wp_get_attachment_image($image->ID, 'thumbnail'); ?>
-			 		</a>    
-				<?php }?>
-			</div>
-			<?php 
+			$output.= "<div class='galleria'>";
+			foreach ( $images as $image ){     
+				$caption = $image->post_excerpt;
+				$description = $image->post_content;
+				if($description == '') $description = $image->post_title;
+				$image_alt = get_post_meta($image->ID,'_wp_attachment_image_alt', true);
+			 	$output.= sprintf('<a href="%s">%s</a>',
+			 		first(wp_get_attachment_image_src($image->ID, 'original')),
+			 		wp_get_attachment_image($image->ID, 'thumbnail')
+			 	);    
+			}
+			$output.= "</div>";
+
+			return $output;
 		}
 	}
 ?>
