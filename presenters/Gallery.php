@@ -31,7 +31,7 @@
 			add_shortcode('gallery', get_class($this).'::shortcode');
 		}
 
-		static function shortcode($output, $attributes){
+		static function shortcode($attributes){
 			global $post, $wp_locale;
 		 	$output = "";
 			if ( ! empty( $attributes['ids'] ) ) {
