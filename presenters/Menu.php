@@ -12,7 +12,7 @@
 			$presenter = get_called_class() ;
 			parent::build();
 			add_action('wp_enqueue_scripts', function() use($presenter){
-				if(!is_user_logged_in()){
+				
 					wp_enqueue_style('global-menu', $presenter::url('css/global.css'));
 					add_action('wp_footer', function() use($presenter){
 						$presenter::render('global', array('menus' => array(
@@ -23,7 +23,7 @@
 						'social' => get_option('clinica-savioli_social_options')
 						));
 					});
-				}
+				
 			});
 			
 		}
@@ -43,7 +43,8 @@
 									'googleplus' => '',									
 									'twitter' => '',
 									'instagram' => '',
-									'youtube' => ''
+									'youtube' => '',
+									'whatsapp' => '',
 								)
 							),get_option('clinica-savioli_social_options', array()))
 						));
