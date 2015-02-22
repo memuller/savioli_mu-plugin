@@ -16,6 +16,17 @@
 				</tr>
 				<tr valign='top'>
 					<th scope='row'>
+						Nome do Usuário
+					</th>
+					<td>
+						<input <?php html_attributes(array('name' => 'savioli_photo_options[user_name]',
+								'value' => $options['user_name'], 'size' => 50, 'type' => 'text', 'class' => 'text'
+							)) ?>>
+						<p class='description'>Nome do usuário cujas fotos serão exibidas.</p>
+					</td>
+				</tr>
+				<tr valign='top'>
+					<th scope='row'>
 						Código do Usuário
 					</th>
 					<td>
