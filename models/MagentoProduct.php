@@ -3,14 +3,25 @@ namespace Savioli;
 class MagentoProduct {
 
 	static function build(){
+		$class = get_called_class();
+		add_action('savioli_get_gioli_products', function() use($class){
+			$options = get_option('clinica-savioli_options');
+			$class::all($options['magento_url'], 6, true, true);
+			$log = get_option('savioli_cron_log');
+			if(!$log) $log = 1;
+			update_option('savioli_cron_log', $log+1);
+		});
+		if(!wp_next_scheduled('savioli_get_gioli_products')){
+			wp_schedule_event(time(),'hourly','savioli_get_gioli_products');
+		}
 		
 	} 
 	static function build_database(){}
 
-	static function all($url, $ammount = 1, $full = true){
+	static function all($url, $ammount = 1, $full = true, $force = false){
 		$products = get_transient('magento_products-'.$url);
 
-		if(!$products){
+		if(!($products) || $force){
 			$html = file_get_dom($url);
 			$grid = $html('.products-grid', 0);
 			$products = array();
