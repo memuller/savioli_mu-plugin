@@ -25,11 +25,13 @@
 		) ;
 		static $icon = '\f223';
 		static $fields = array(
-			'description' => array('label' => 'Descrição', 'type' => 'text_area')
+			'description' => array('label' => 'Descrição', 'type' => 'text_area'),
+			'placeholder' => array('label' => 'Placeholder?', 'type' => 'boolean',
+				'description' => 'se sim, o texto será ignorado.', 'default' => 0)
 		) ;
 
 		static $editable_by = array(
-			'form_advanced' => array('fields' => array('description'))
+			'form_advanced' => array('fields' => array('description', 'placeholder'))
 		);
 
 		static $absent_actions = array('quick-edit');
@@ -79,10 +81,15 @@
 				if(!current_user_can('manage_options'))
 					unset($actions['edit']);
 				$object = new $class();
-				$actions['view'] = sprintf("<a class='thickbox' href='%s' title='%s'>%s</a>
-					<div id='%s' style='display:none;'><div>%s</div></div>", 
-					"#TB_inline?width=800&height=600&inlineId=help-$object->ID", $object->title, __('View'), 
-					'help-'.$object->ID, apply_filters('the_content',$object->content));
+				if(!$object->placeholder){
+					$actions['view'] = sprintf("<a class='thickbox' href='%s' title='%s'>%s</a>
+						<div id='%s' style='display:none;'><div>%s</div></div>", 
+						"#TB_inline?width=800&height=600&inlineId=help-$object->ID", 
+						$object->title, __('View'), 'help-'.$object->ID, 
+						apply_filters('the_content',$object->content));
+				} else {
+					$actions['view'] = "";
+				}
 				return $actions;
 			});
 
