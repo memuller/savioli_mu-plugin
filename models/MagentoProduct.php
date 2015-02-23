@@ -38,7 +38,7 @@ class MagentoProduct {
 
 				$products[]= $object;
 			}
-			set_transient('magento_products-'.$url, $products, 60*60);
+			set_transient('magento_products-'.$url, $products, 60*60*2);
 		}
 		return array_slice($products, 0, $ammount);
 	}
