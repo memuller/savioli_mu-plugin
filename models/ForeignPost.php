@@ -19,6 +19,18 @@ class ForeignPost extends BaseItem {
 		return $posts ; 
 	}
 
+	public function posts_url($blog=1){
+		$options = get_option('clinica-savioli_options');
+		$blogs = $options['blogs'];
+		
+		switch_to_blog($blogs["$blog"]);
+		
+		$url = home_url('posts');
+		restore_current_blog();
+
+		return $url;
+	}
+
 	public function user_avatar($size=96){
 		return get_avatar($this->post_author, $size);
 	}

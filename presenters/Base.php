@@ -18,7 +18,6 @@
 			array('if' => 'isblog', 'is' => 'home', 'scripts' => array('instafeed'))
 		);
 
-
 		static function localize_instagram(){
 			$options = get_option('savioli_photo_options');
 			return array(
