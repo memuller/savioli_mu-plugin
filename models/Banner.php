@@ -59,6 +59,8 @@
 
 		static function build(){
 			parent::build();
+			
+
 			add_action('savioli-banner-save', function($id, $data){
 				$post = get_post($id);
 				if($post->post_title == $data['url']) return ;

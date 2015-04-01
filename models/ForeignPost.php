@@ -14,6 +14,10 @@ class ForeignPost extends BaseItem {
 		$posts = get_posts(array(
 			'posts_per_page' => $options['blogs_num_posts']
 		));
+
+		foreach ($posts as $post) {
+			$post->permalink = get_permalink($post);
+		}
 		restore_current_blog(); 
 		
 		return $posts ; 
