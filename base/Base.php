@@ -4,7 +4,7 @@
 
 	class Plugin extends BasePlugin {
 
-		static $db_version = '0.3' ;
+		static $db_version = '0.4' ;
 		static $custom_posts = array('Banner', 'Clipping', 'Video', 'Help');
 		static $custom_taxonomies = array();
 		static $custom_post_formats = array();
@@ -25,6 +25,7 @@
 		static $query_vars = array(
 		);
 		static $rewrite_rules = array(
+			'(roque|gisela)-na-midia' => 'post_type=clipping'
 		);
 
 		static function build(){
