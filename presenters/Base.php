@@ -134,9 +134,7 @@
 							'page' => '?page=clinica-savioli_options',
 							'options' => array_merge(array(
 								'blogs' => array(),
-								'blogs_num_posts' => 2,
-								'magento_url' => '',
-								'magento_num_posts' => 4
+								'blogs_num_posts' => 2
 							),get_option('clinica-savioli_options', array()))
 						));
 				});	
