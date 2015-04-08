@@ -52,6 +52,7 @@
 
 
 			\Savioli\Presenters\Menu::setup_config_page();
+			static::product_config();
 
 			if($base::is_main_site()){
 				static::setup_config();
@@ -97,6 +98,31 @@
 			});
 			add_action('admin_init', function(){
 				register_setting('savioli_video_options', 'savioli_video_options') ;
+			
+			});
+		}
+
+		static function product_config(){
+			$presenter = get_called_class();
+			add_action('admin_menu', function() use($presenter){
+				add_submenu_page('edit.php?post_type=product', 'Configurações dos Produtos', 'Configurações', 'manage_options', 'savioli_product_options', function() use($presenter){
+						$options = get_option('savioli_product_options');
+						if($_SERVER['REQUEST_METHOD'] == 'POST'){
+							update_option('savioli_product_options', $options);
+						}
+
+						$presenter::render('admin/product', array(
+							'options' => array_merge(array(
+								'num_products' => 4,
+								'magento_import_enabled' => false,
+								'magento_url' => ''
+							), $options ),
+							'page' => '?post_type=product&page=savioli_product_options',
+						));
+				});	
+			});
+			add_action('admin_init', function(){
+				register_setting('savioli_product_options', 'savioli_product_options') ;
 			
 			});
 		}
